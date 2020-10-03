@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 """
 from flask_reddit import db

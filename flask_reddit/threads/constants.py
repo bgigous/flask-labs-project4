@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 # For simplicity, these values are shared among both threads and comments.
 MAX_TITLE = 300
 MAX_BODY = 3000

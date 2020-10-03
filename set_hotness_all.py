@@ -1,9 +1,9 @@
-#!/usr/bin/env python2.7
 """
+This is a helper script for setting "hotness" of thread
+It is useful for sorting by trending posts
 """
 import os
 import sys
-sys.path.insert(0, '/home/lucas/www/reddit.lucasou.com/reddit-env/flask_reddit')
 import readline
 from pprint import pprint
 

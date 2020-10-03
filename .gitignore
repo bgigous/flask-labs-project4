@@ -1,8 +1,9 @@
 *.pyc
 settings.py
-config.py
+data-dev.sqlite
 
 /logs/*.log
+env/
 
 # C extensions
 *.so

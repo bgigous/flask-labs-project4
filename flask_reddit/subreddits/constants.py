@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 # For simplicity, these values are shared among both threads and comments.
 MAX_THREADS = 1000
 MAX_NAME = 50

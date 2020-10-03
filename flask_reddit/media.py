@@ -1,11 +1,10 @@
-# -*- coding: utf-8 -*-
 """
 All code for scraping images and videos from posted
 links go in this file.
 """
-import BeautifulSoup
 import requests
-from urlparse import urlparse, urlunparse, urljoin
+from bs4 import BeautifulSoup
+from urllib.parse import urlparse, urlunparse, urljoin
 
 img_extensions = ['jpg', 'jpeg', 'gif', 'png', 'bmp']
 
@@ -38,7 +37,7 @@ def get_top_img(url, timeout=4):
         return url
     try:
         html = requests.get(url, timeout=timeout).text
-        soup = BeautifulSoup.BeautifulSoup(html)
+        soup = BeautifulSoup(html)
 
         og_image = (soup.find('meta', property='og:image') or
                     soup.find('meta', attrs={'name': 'og:image'}))
@@ -53,8 +52,8 @@ def get_top_img(url, timeout=4):
             src_url = thumbnail_spec['href']
             return make_abs(url, src_url)
 
-    except Exception, e:
-        print 'FAILED WHILE EXTRACTING THREAD IMG', str(e)
+    except Exception as e:
+        print('FAILED WHILE EXTRACTING THREAD IMG', str(e))
         return None
 
     return None

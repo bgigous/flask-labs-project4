@@ -1,11 +1,10 @@
-# -*- coding: utf-8 -*-
 """
 All view code for async get/post calls towards the server
 must be contained in this file.
 """
 from flask import (Blueprint, request, render_template, flash, g,
         session, redirect, url_for, jsonify, abort)
-from werkzeug import check_password_hash, generate_password_hash
+from werkzeug.security import check_password_hash, generate_password_hash
 
 from flask_reddit import db
 from flask_reddit.users.models import User

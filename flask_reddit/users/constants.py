@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 MAX_THREADS_PER_DAY = 100
 MAX_COMMENTS_PER_DAY = 500
 MAX_VOTES_PER_DAY = 2000

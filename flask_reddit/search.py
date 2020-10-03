@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 Simple module for searching the sql-alchemy database based
 on user queries.

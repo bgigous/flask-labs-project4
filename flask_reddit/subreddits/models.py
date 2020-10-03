@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 All database abstractions for subreddits go in this file.
 
