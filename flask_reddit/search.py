@@ -33,5 +33,4 @@ def search(query, orderby='creation', filter_user=None, search_title=True,
     elif orderby == 'numb_comments':
         pass
 
-    base_qs = base_qs.limit(limit)
     return base_qs
