@@ -2,6 +2,7 @@
 All database abstractions for threads and comments
 go in this file.
 """
+from flask import url_for
 from flask_reddit import db
 from flask_reddit.threads import constants as THREAD
 from flask_reddit import utils
@@ -184,7 +185,7 @@ class Thread(db.Model):
         setting it to run literally as someone posts a thread. but once again,
         this repo is just a simple example of a reddit-like crud application!
         """
-        DEFAULT_THUMBNAIL = 'https://reddit.codelucas.com/static/imgs/reddit-camera.png'
+        DEFAULT_THUMBNAIL = url_for('static', filename='imgs/reddit-camera.png')
         if self.link:
             thumbnail = media.get_top_img(self.link)
         if not thumbnail:
