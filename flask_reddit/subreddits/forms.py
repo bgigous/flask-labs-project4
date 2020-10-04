@@ -5,6 +5,6 @@ from flask_wtf import Form
 from wtforms import TextField, TextAreaField
 from wtforms.validators import Required, URL, Length
 
-class SubmitForm(Form):
+class SubmitForm(FlaskForm):
     name = TextField('Name your community!', [Required()])
     desc = TextAreaField('Description of subreddit!', [Required()])
