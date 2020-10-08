@@ -26,6 +26,14 @@ def not_found(error):
 def internal_server_error(error):
     return render_template('500.html'), 500
 
+@app.shell_context_processor
+def context_processor():
+    from flask_reddit.users.models import User
+    from flask_reddit.threads.models import Thread, thread_upvotes
+    from flask_reddit.subreddits.models import Subreddit
+    return dict(User=User, Thread=Thread, Subreddit=Subreddit,
+        thread_upvotes=thread_upvotes)
+
 from flask_reddit.users.views import mod as users_module
 app.register_blueprint(users_module)
 

@@ -21,7 +21,7 @@ def before_request():
     if 'user_id' in session:
         g.user = User.query.get(session['user_id'])
 
-def meets_thread_criterea(thread):
+def meets_thread_criteria(thread):
     """
     """
     if not thread.title:
@@ -59,7 +59,7 @@ def submit(subreddit_name=None):
         thread = Thread(title=title, link=link, text=text,
                 user_id=user_id, subreddit_id=subreddit.id)
 
-        if not meets_thread_criterea(thread):
+        if not meets_thread_criteria(thread):
             return render_template('threads/submit.html', form=form, user=g.user,
                 cur_subreddit=subreddit.name)
 

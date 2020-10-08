@@ -6,15 +6,12 @@ We also need a first user to admin our first subreddit.
 import os
 import sys
 import readline
-from pprint import pprint
 
-from flask import *
-from werkzeug import check_password_hash, generate_password_hash
+from werkzeug.security import check_password_hash, generate_password_hash
 
-from flask_reddit import *
-from flask_reddit.users.models import *
-from flask_reddit.threads.models import *
-from flask_reddit.subreddits.models import *
+from flask_reddit import db
+from flask_reddit.users.models import User
+from flask_reddit.subreddits.models import Subreddit
 
 db.drop_all()
 db.create_all()

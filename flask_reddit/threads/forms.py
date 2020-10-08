@@ -1,7 +1,7 @@
 """
 """
 from flask_reddit.threads import constants as THREAD
-from flask_wtf import Form
+from flask_wtf import FlaskForm
 from wtforms import TextField, TextAreaField
 from wtforms.validators import Required, URL, Length
 
