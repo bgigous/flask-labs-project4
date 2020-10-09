@@ -128,6 +128,7 @@ class Thread(db.Model):
         """
         return ids of users who voted this thread up
         """
+        # select rows where this thread was upvoted
         select = thread_upvotes.select(thread_upvotes.c.thread_id==self.id)
         rs = db.engine.execute(select)
         ids = rs.fetchall() # list of tuples
@@ -155,7 +156,7 @@ class Thread(db.Model):
         already_voted = self.has_voted(user_id)
         vote_status = None
         if not already_voted:
-            # vote up the thread
+            # vote up the thread (insert a new row into association table)
             db.engine.execute(
                 thread_upvotes.insert(),
                 user_id   = user_id,
@@ -166,6 +167,8 @@ class Thread(db.Model):
         else:
             # unvote the thread
             db.engine.execute(
+                # delete the row that contains the passed-in user ID and
+                # this thread ID
                 thread_upvotes.delete(
                     db.and_(
                         thread_upvotes.c.user_id == user_id,
